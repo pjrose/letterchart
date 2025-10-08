@@ -12,7 +12,7 @@ public partial class MainWindow : Window
 
     private void OnLaunchSloan(object sender, RoutedEventArgs e)
     {
-        LetterChartLauncher.ShowClinicalTestChart();
+        LetterChartLauncher.ShowClinicalTestChart(  lettersPerLine: new[] {10,5,3});
     }
 
     private void OnLaunchTumblingE(object sender, RoutedEventArgs e)

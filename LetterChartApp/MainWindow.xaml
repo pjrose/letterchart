@@ -18,11 +18,11 @@
         <StackPanel Grid.Row="1"
                     Margin="20"
                     VerticalAlignment="Top"
-                    Spacing="12">
+                    >
             <TextBlock Text="Use the buttons below to show full screen clinical charts on the target monitor."
                        TextWrapping="Wrap"
                        FontSize="16" />
-            <Button Content="Launch Sloan Letter Chart (4 m, 27" 4K)"
+            <Button Content="Launch Sloan Letter Chart (4 m, 27in 4K)"
                     Padding="12"
                     FontSize="18"
                     Click="OnLaunchSloan" />

@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,7 +49,7 @@ public partial class LetterChartWindow : Window
             };
             lineGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             lineGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            lineGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            lineGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto});
 
             var lettersPanel = CreateLettersPanel();
             _letterPanels.Add(lettersPanel);
@@ -72,7 +71,7 @@ public partial class LetterChartWindow : Window
             Grid.SetColumn(rightLeader, 2);
 
             ChartGrid.Children.Add(lineGrid);
-            Grid.SetRow(lineGrid, i);
+            Grid.SetRow(lineGrid, i);       
         }
 
         UpdateLineWidths();
@@ -190,7 +189,8 @@ public partial class LetterChartWindow : Window
             Orientation = Orientation.Horizontal,
             VerticalAlignment = VerticalAlignment.Center,
             HorizontalAlignment = isLeft ? HorizontalAlignment.Left : HorizontalAlignment.Right,
-            Margin = isLeft ? new Thickness(40, 0, 20, 0) : new Thickness(20, 0, 40, 0)
+            // reduce the outer inset so the leader renders closer to the window edge
+            Margin = isLeft ? new Thickness(8, 0, 20, 0) : new Thickness(20, 0, 8, 0)
         };
 
         var lineVisual = new Border

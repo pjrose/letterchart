@@ -17,7 +17,7 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Disabled">
             <Grid x:Name="ChartGrid"
-                  HorizontalAlignment="Center"
+                  HorizontalAlignment="Stretch"
                   VerticalAlignment="Center" />
         </ScrollViewer>
     </Grid>

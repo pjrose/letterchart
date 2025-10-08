@@ -27,7 +27,7 @@ public static class LetterChartLauncher
     public static LetterChartWindow ShowClinicalTestChart(
         ChartVariant variant = ChartVariant.Sloan,
         int numberOfLines = 3,
-        double pixelPitchMillimeters = 0.155,
+        double pixelPitchMillimeters = 0.233,
         double screenDistanceMeters = 4.0,
         double scalePercent = 100.0,
         IEnumerable<string>? explicitLineLetters = null,
