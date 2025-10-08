@@ -1,0 +1,24 @@
+
+<Window x:Class="LetterChartApp.Views.LetterChartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Letter Chart"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        AllowsTransparency="False"
+        Background="Black"
+        ShowInTaskbar="False"
+        Topmost="True">
+    <Grid x:Name="RootGrid" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Disabled">
+            <Grid x:Name="ChartGrid"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center" />
+        </ScrollViewer>
+    </Grid>
+</Window>
