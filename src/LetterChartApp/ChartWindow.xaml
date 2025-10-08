@@ -1,0 +1,125 @@
+<Window x:Class="LetterChartApp.ChartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Letter Chart"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        Background="{Binding BackgroundBrush}"
+        AllowsTransparency="False">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Grid Margin="40">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Leader lines (left) -->
+        <ItemsControl Grid.Column="0"
+                      ItemsSource="{Binding Lines}"
+                      Visibility="{Binding ShowLeaderLines, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel VerticalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="{Binding LeaderMargin}" Background="Transparent">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Rectangle Width="{Binding DataContext.LeaderLineLength, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       Height="1"
+                                       Fill="{Binding DataContext.LeaderBrush, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding LeaderText}"
+                                       Margin="8,0,0,0"
+                                       Foreground="{Binding DataContext.LeaderBrush, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       FontSize="{Binding DataContext.LeaderFontSize, RelativeSource={RelativeSource AncestorType=Window}}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!-- Chart body -->
+        <Border Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                MaxWidth="{Binding MaxChartWidth}"
+                Background="Transparent">
+            <ItemsControl ItemsSource="{Binding Lines}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="{Binding LineMargin}"
+                                    HorizontalAlignment="Center">
+                            <ItemsControl ItemsSource="{Binding Letters}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Background="Transparent" Margin="{Binding Margin}">
+                                            <TextBlock Text="{Binding Character}"
+                                                       FontFamily="{Binding DataContext.FontFamily, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                       FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=ItemsControl, AncestorLevel=2}}"
+                                                       Foreground="{Binding Foreground}"
+                                                       RenderTransformOrigin="0.5,0.5">
+                                                <TextBlock.RenderTransform>
+                                                    <RotateTransform Angle="{Binding Rotation}" />
+                                                </TextBlock.RenderTransform>
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <!-- Leader lines (right) -->
+        <ItemsControl Grid.Column="2"
+                      ItemsSource="{Binding Lines}"
+                      Visibility="{Binding ShowLeaderLines, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel VerticalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="{Binding LeaderMargin}" Background="Transparent">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    FlowDirection="RightToLeft">
+                            <Rectangle Width="{Binding DataContext.LeaderLineLength, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       Height="1"
+                                       Fill="{Binding DataContext.LeaderBrush, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding LeaderText}"
+                                       Margin="8,0,0,0"
+                                       Foreground="{Binding DataContext.LeaderBrush, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       FontSize="{Binding DataContext.LeaderFontSize, RelativeSource={RelativeSource AncestorType=Window}}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
