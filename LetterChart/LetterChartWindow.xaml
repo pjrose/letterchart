@@ -1,0 +1,14 @@
+<Window x:Class="LetterChart.LetterChartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:LetterChart.Rendering"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        AllowsTransparency="False"
+        Background="White"
+        Topmost="False">
+    <Grid>
+        <local:LetterChartControl x:Name="ChartControl" />
+    </Grid>
+</Window>
