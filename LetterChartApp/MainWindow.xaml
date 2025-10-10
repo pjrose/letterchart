@@ -1,0 +1,39 @@
+
+<Window x:Class="LetterChartApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Letter Chart Launcher"
+        Width="600"
+        Height="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Letter Chart Demo Launcher"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Margin="20,20,20,10" />
+        <StackPanel Grid.Row="1"
+                    Margin="20"
+                    VerticalAlignment="Top"
+                    >
+            <TextBlock Text="Use the buttons below to show full screen clinical charts on the target monitor."
+                       TextWrapping="Wrap"
+                       FontSize="16" />
+            <Button Content="Launch Sloan Letter Chart (4 m, 27in 4K)"
+                    Padding="12"
+                    FontSize="18"
+                    Click="OnLaunchSloan" />
+            <Button Content="Launch Tumbling E Chart"
+                    Padding="12"
+                    FontSize="18"
+                    Click="OnLaunchTumblingE" />
+            <Button Content="Launch Tumbling C Chart"
+                    Padding="12"
+                    FontSize="18"
+                    Click="OnLaunchTumblingC" />
+        </StackPanel>
+    </Grid>
+</Window>

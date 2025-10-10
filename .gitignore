@@ -1,0 +1,41 @@
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+TestResult*/
+*.vs/
+*.vscode/
+*.cache
+*.ide/
+
+# Visual Studio test artifacts
+*.trx
+
+# Build outputs from dotnet test
+**/TestResults/
+
+# dotnet generated files
+*.nuget.props
+*.nuget.targets
+**/project.assets.json
+**/project.nuget.cache
+**/*.nuget.dgspec.json
+**/*.nuget.g.props
+**/*.nuget.g.targets
+**/*.FileListAbsolute.txt
+**/*.genruntimeconfig.cache
+**/*.Up2Date
+**/*.assets.cache
+**/*.CoreCompileInputs.cache
+**/GlobalUsings.g.cs
+**/*.AssemblyInfo.cs
+**/*.AssemblyInfoInputs.cache
+**/*.GeneratedMSBuildEditorConfig.editorconfig
+
+# VS profiler / coverage
+*.coverage
+*.coveragexml
+
+# Rider
+.idea/
